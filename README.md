@@ -4,9 +4,9 @@ A personal daily productivity dashboard built with React, TypeScript, Vite, and 
 
 ## Current scope
 
-Milestone 2 adds persistent tasks using SQLite and SQLAlchemy, Alembic migrations,
-and a tested task API. The frontend remains the Milestone 1 responsive welcome screen
-with a backend connection check. Task UI and notes are not implemented yet.
+Milestone 3 adds a responsive task dashboard using the existing persistent task API.
+Create, edit, complete, reopen, and delete tasks in the browser. Notes and the final
+Today / Upcoming / Completed view system are not implemented yet.
 
 ## Prerequisites
 
@@ -97,18 +97,28 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. The page should display **Connected to LifeDesk**.
+Open http://127.0.0.1:5173. The dashboard loads your active tasks from the backend.
 On subsequent starts, run only `npm run dev` from `frontend`.
 
-The browser requests the relative URL `/api/health`. Vite forwards `/api` requests to
+The browser requests relative `/api/tasks` URLs. Vite forwards `/api` requests to
 `http://127.0.0.1:8000`, so development requests are same-origin from the browser's
 perspective and do not require permissive CORS settings. Both servers bind to loopback;
 mobile-sized windows can be tested with browser responsive mode. Network access from
 a separate mobile device is not configured.
 
-If the connection fails, start the backend and click **Try again**. Requests time out
-after eight seconds. Ports 8000 and 5173 must be available; Vite will not silently switch ports.
+If task loading fails, start the backend and click **Refresh list**. Task requests time out
+after fifteen seconds. Ports 8000 and 5173 must be available; Vite will not silently switch ports.
 Use Ctrl+C in each terminal to stop the servers.
+
+Use **Add task** to create a task; Medium is the default priority. Each task has
+**Edit**, **Mark complete**, and **Delete** controls. **Delete** asks for confirmation;
+**Keep task** cancels it. Open **Finished tasks** to reopen a completed task.
+This is a simple section, not the final date-based view system.
+
+Forms preserve their input after failed saves and disable submission while saving.
+**Refresh list** reloads server data without clearing the new-task draft or unmounting
+an existing edit form. A full browser reload discards unsaved drafts; saved tasks remain
+in SQLite. No task data is stored in localStorage or another frontend-only database.
 
 ## Checks
 
