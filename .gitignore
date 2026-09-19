@@ -1,0 +1,27 @@
+# Frontend
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+
+# Local configuration and persistent data
+.env
+.env.*
+!.env.example
+data/
+*.db
+*.db-*
+
+# Editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

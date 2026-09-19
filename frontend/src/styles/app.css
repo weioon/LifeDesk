@@ -1,0 +1,37 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #233d34;
+  background: #f6f7f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; }
+.shell { width: min(100% - 48px, 1000px); margin: 0 auto; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 32px 0; border-bottom: 1px solid #dce3d9; }
+.brand { color: #245c4b; text-decoration: none; font-size: 24px; font-weight: 750; letter-spacing: -1px; }
+.version, footer { color: #5c6b62; font-size: 14px; }
+.welcome { padding: clamp(48px, 10vw, 100px) 0; max-width: 740px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #52735f; }
+h1 { margin: 20px 0; font-size: clamp(36px, 6vw, 60px); line-height: 1.12; letter-spacing: -2px; }
+.intro { font-size: 18px; line-height: 1.7; max-width: 520px; color: #5c6b62; }
+.connection-card { margin-top: 40px; padding: 28px; background: #fff; border: 1px solid #dce3d9; border-radius: 16px; }
+h2 { margin: 0; font-size: 19px; }
+.connection-card p { line-height: 1.6; }
+.connection-card > div > p { color: #5c6b62; }
+.status { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 0; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.connected { color: #246446; }
+.checking { color: #5c6b62; }
+.unavailable { color: #9b3c28; }
+button { margin-top: 18px; border: 0; border-radius: 8px; padding: 12px 18px; min-height: 44px; background: #245c4b; color: #fff; font: inherit; cursor: pointer; }
+button:hover { background: #174334; }
+:focus-visible { outline: 3px solid #bc7a21; outline-offset: 4px; }
+footer { padding: 24px 0; border-top: 1px solid #dce3d9; }
+@media (max-width: 520px) {
+  .shell { width: calc(100% - 32px); }
+  header { align-items: flex-start; flex-direction: column; gap: 8px; padding: 24px 0; }
+  .connection-card { padding: 22px; }
+}
